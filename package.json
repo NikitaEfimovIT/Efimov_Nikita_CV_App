@@ -33,9 +33,10 @@
   },
   "scripts": {
     "start": "NODE_ENV=developmetn webpack-dev-server --open ",
-    "build": "react-scripts build",
+    "build": "webpack",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prod": "webpack --mode=production"
   },
   "eslintConfig": {
     "extends": [
