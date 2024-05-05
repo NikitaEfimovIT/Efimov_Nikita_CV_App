@@ -24,6 +24,9 @@ const useStyles = makeStyles()((theme) => ({
     "&:hover": {
       boxShadow: "inset 0px 32px 75px -15px rgba(95,240,0,0.68);",
       cursor: "pointer",
+      [theme.breakpoints.down("md")]: {
+        boxShadow: "none",
+      },
     },
   },
   textContainer: {
