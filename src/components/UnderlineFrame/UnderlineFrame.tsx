@@ -20,12 +20,18 @@ const useStyles = makeStyles()((theme) => ({
     color: "white",
   },
   root: {
-    width: 150,
-    height: 50,
+    width: 200,
+    height: 100,
     cursor: "pointer",
     marginRight: "1em",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("xs")]: {
       width: "100%",
+      height: 50,
+    },
+    [theme.breakpoints.up(1050)]: {
+      // width: "100%"
+      height: 50,
+      width: 150,
     },
   },
   title: {

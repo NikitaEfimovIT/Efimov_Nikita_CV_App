@@ -35,13 +35,32 @@ const useStyles = makeStyles()((theme) => ({
     backdropFilter: "blur(5px)",
     borderLeft: "1px solid #05ff00",
   },
+
+  sideMenu: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    height: "100%",
+    gap: "12px",
+    [theme.breakpoints.down(1050)]: {
+      fontSize: "1.5em",
+      justifyContent: "start",
+      alignItems: "center",
+      gap: 5,
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1em",
+      justifyContent: "center",
+      gap: 12,
+    },
+  },
 }));
 
 export const TopBar: React.FC<{ refs: any }> = ({ refs }) => {
   const { classes } = useStyles();
 
   const theme = useTheme();
-  const isMdDown = useMediaQuery(theme.breakpoints.down("md"));
+  const is1050Down = useMediaQuery(theme.breakpoints.down(1050));
   const [open, setOpen] = useState(false);
   const handleClick = (ref: any, block: any = "center") => {
     if (open) {
@@ -55,7 +74,7 @@ export const TopBar: React.FC<{ refs: any }> = ({ refs }) => {
   return (
     <Container className={classes.root}>
       <img className={classes.logo} alt={"logo"} src={long_logo} onClick={() => handleClick(refs[0], "start")} />
-      {isMdDown ? (
+      {is1050Down ? (
         <>
           {!open && (
             <Button onClick={() => setOpen((prevState) => !prevState)}>
@@ -69,15 +88,7 @@ export const TopBar: React.FC<{ refs: any }> = ({ refs }) => {
             >
               <ArrowRightAlt fontSize={"large"} />
             </Button>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                flexDirection: "column",
-                height: "100%",
-                gap: "12px",
-              }}
-            >
+            <div className={classes.sideMenu}>
               <UnderlineFrame title={"About me"} handleClick={() => handleClick(refs[1])} />
               <UnderlineFrame title={"Skills"} handleClick={() => handleClick(refs[2])} />
               <UnderlineFrame title={"Experience"} handleClick={() => handleClick(refs[3])} />
