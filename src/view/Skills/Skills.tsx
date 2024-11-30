@@ -9,8 +9,19 @@ import react from "@src/images/skills/react-2.svg";
 import redux from "@src/images/skills/redux.svg";
 import ts from "@src/images/skills/ts-logo-256.svg";
 import webpack from "@src/images/skills/webpack-icon.svg";
+import bootstrap from "@src/images/skills/bootstrap-5-1.svg";
+import express from "@src/images/skills/express-109.svg";
+import github from "@src/images/skills/github-icon-2.svg";
+import gitlab from "@src/images/skills/gitlab.svg";
+import jest from "@src/images/skills/jest-2.svg";
+import npm from "@src/images/skills/npm-square-red-1.svg";
+import reactN from "@src/images/skills/react-native-1.svg";
+import threejs from "@src/images/skills/threejs-1.svg";
+import vite from "@src/images/skills/vitejs.svg";
+import youtrack from "@src/images/skills/yourtrack.svg";
+
 import SkillBox from "@src/view/Skills/SkillBox/SkillBox";
-import gsap from "gsap";
+import Marquee from "react-fast-marquee";
 
 const useStyles = makeStyles()((theme) => ({
   root: {},
@@ -82,6 +93,69 @@ const skills: Skill[] = [
   },
 ];
 
+const skills2: Skill[] = [
+  {
+    name: "",
+    img: express,
+    description:
+      "Node.js allows me to run JavaScript on the server-side, enabling me to build scalable and efficient web applications. Its event-driven architecture and non-blocking I/O operations make it suitable for handling concurrent requests.",
+  },
+  {
+    name: "Bootstrap",
+    img: bootstrap,
+    description:
+      "Node.js allows me to run JavaScript on the server-side, enabling me to build scalable and efficient web applications. Its event-driven architecture and non-blocking I/O operations make it suitable for handling concurrent requests.",
+  },
+  {
+    name: "GitHub",
+    img: github,
+    description:
+      "Node.js allows me to run JavaScript on the server-side, enabling me to build scalable and efficient web applications. Its event-driven architecture and non-blocking I/O operations make it suitable for handling concurrent requests.",
+  },
+  {
+    name: "GitLab",
+    img: gitlab,
+    description:
+      "Node.js allows me to run JavaScript on the server-side, enabling me to build scalable and efficient web applications. Its event-driven architecture and non-blocking I/O operations make it suitable for handling concurrent requests.",
+  },
+  {
+    name: "Jest",
+    img: jest,
+    description:
+      "Node.js allows me to run JavaScript on the server-side, enabling me to build scalable and efficient web applications. Its event-driven architecture and non-blocking I/O operations make it suitable for handling concurrent requests.",
+  },
+  {
+    name: "npm",
+    img: npm,
+    description:
+      "Node.js allows me to run JavaScript on the server-side, enabling me to build scalable and efficient web applications. Its event-driven architecture and non-blocking I/O operations make it suitable for handling concurrent requests.",
+  },
+  {
+    name: "React Native",
+    img: reactN,
+    description:
+      "Node.js allows me to run JavaScript on the server-side, enabling me to build scalable and efficient web applications. Its event-driven architecture and non-blocking I/O operations make it suitable for handling concurrent requests.",
+  },
+  {
+    name: "ThreeJS",
+    img: threejs,
+    description:
+      "Node.js allows me to run JavaScript on the server-side, enabling me to build scalable and efficient web applications. Its event-driven architecture and non-blocking I/O operations make it suitable for handling concurrent requests.",
+  },
+  {
+    name: "ViteJS",
+    img: vite,
+    description:
+      "Node.js allows me to run JavaScript on the server-side, enabling me to build scalable and efficient web applications. Its event-driven architecture and non-blocking I/O operations make it suitable for handling concurrent requests.",
+  },
+  {
+    name: "Youtrack",
+    img: youtrack,
+    description:
+      "Node.js allows me to run JavaScript on the server-side, enabling me to build scalable and efficient web applications. Its event-driven architecture and non-blocking I/O operations make it suitable for handling concurrent requests.",
+  },
+];
+
 export const Skills = React.forwardRef<any, any>((props, ref) => {
   const { classes } = useStyles();
 
@@ -91,15 +165,36 @@ export const Skills = React.forwardRef<any, any>((props, ref) => {
   return (
     <Container style={{ marginBottom: isMdDown ? "30%" : "10%" }} ref={ref}>
       <h1 className={classes.header}>Skills</h1>
-      <Grid container spacing={2} className={classes.grid} justifyContent={isMdDown && "center"}>
-        {skills.map((skill, index) => {
-          return (
-            <Grid justifyContent={"center"} display={"flex"} key={index + 1} id={skill.name} item md={3} sm={12}>
+      {/*<Grid container spacing={2} className={classes.grid} justifyContent={isMdDown && "center"}>*/}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          gap: "2em",
+          padding: "0 4rem 0 4rem",
+        }}
+      >
+        <Marquee>
+          {skills.map((skill, index) => {
+            return (
+              // <Grid justifyContent={"center"} display={"flex"} key={index + 1} id={skill.name} item md={3} sm={12}>
               <SkillBox skill={skill} index={index + 1} />
-            </Grid>
-          );
-        })}
-      </Grid>
+              // </Grid>
+            );
+          })}
+        </Marquee>
+        <Marquee speed={80}>
+          {skills2.map((skill, index) => {
+            return (
+              // <Grid justifyContent={"center"} display={"flex"} key={index + 1} id={skill.name} item md={3} sm={12}>
+              <SkillBox skill={skill} index={index + 1} />
+              // </Grid>
+            );
+          })}
+        </Marquee>
+      </div>
+      {/*</Grid>*/}
     </Container>
   );
 });

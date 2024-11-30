@@ -64,7 +64,6 @@ function App() {
   const theme = useTheme();
 
   const isMdDown = useMediaQuery(theme.breakpoints.down("md"));
-
   return (
     <div className={classes.root} ref={topRef}>
       {clickedIndex && <div className={classes.blurContainer}></div>}
