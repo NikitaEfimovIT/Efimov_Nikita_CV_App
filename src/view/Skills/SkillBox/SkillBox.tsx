@@ -21,12 +21,6 @@ const useStyles = makeStyles()((theme) => ({
     zIndex: 1,
     transition: "box-shadow 0.4s ease-in-out",
     borderRadius: "10px",
-    "&:hover": {
-      boxShadow: "inset 0px 32px 75px -15px rgba(95,240,0,0.68);",
-      [theme.breakpoints.down("md")]: {
-        boxShadow: "none",
-      },
-    },
   },
   textContainer: {
     display: "flex",
